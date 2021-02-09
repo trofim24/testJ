@@ -10,6 +10,9 @@ def get_script_dir(file=""):
   scriptDir = os.path.dirname(scriptPath)
   return scriptDir
 
+def is_dir(path):
+  return os.path.isdir(get_path(path))
+
 def cmd(prog, args=[], is_no_errors=False):  
   ret = 0
   if ("windows" == host_platform()):
