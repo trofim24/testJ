@@ -52,17 +52,9 @@ def git_update(repo, is_no_errors=False, is_current_dir=False):
     is_not_exit = True
   old_cur = os.getcwd()
   os.chdir(folder)
-  cmd("git", ["fetch"], False if ("1" != config.option("update-light")) else True)
-  if is_not_exit or ("1" != config.option("update-light")):
-    retCheckout = cmd("git", ["checkout", "-f", config.option("branch")], True)
-    if (retCheckout != 0):
-      print("branch does not exist...")
-      print("switching to master...")
-      cmd("git", ["checkout", "-f", "master"])
-    cmd("git", ["submodule", "update", "--init", "--recursive"], True)
-  if (0 != config.option("branch").find("tags/")):
-    cmd("git", ["pull"], False if ("1" != config.option("update-light")) else True)
-    cmd("git", ["submodule", "update", "--recursive", "--remote"], True)
+  cmd("git", ["fetch"], False)
+  cmd("git", ["pull"], False)
+  
   os.chdir(old_cur)
   return
 
