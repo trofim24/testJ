@@ -1,6 +1,13 @@
 #!/usr/bin/env python
+import platform
 import os
 import subprocess
+
+def host_platform():
+  ret = platform.system().lower()
+  if (ret == "darwin"):
+    return "mac"
+  return ret
 
 def get_script_dir(file=""):
   test_file = file
