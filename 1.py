@@ -50,3 +50,5 @@ def git_update(repo, is_no_errors=False, is_current_dir=False):
     cmd("git", ["submodule", "update", "--recursive", "--remote"], True)
   os.chdir(old_cur)
   return
+
+git_update("test2")
