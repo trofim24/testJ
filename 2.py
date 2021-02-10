@@ -1,4 +1,4 @@
+#!/usr/bin/env python
+import os
 
-def main():
-  # calculate stuff
-  return [1,2,3]
+os.environ["TEST"] = "TEST"
